@@ -81,6 +81,7 @@ const InputForm: React.FC = () => {
                 <input
                   type="range"
                   min={0}
+                  required
                   max={10}
                   step={1}
                   id="pregnancies"
@@ -109,6 +110,9 @@ const InputForm: React.FC = () => {
                 type="number"
                 name="weight"
                 id="weight"
+                min="0"
+                step="any"
+                required
                 onChange={(e) => {
                   setFieldValue('weight', e.target.value);
                   setFieldValue(
@@ -122,6 +126,9 @@ const InputForm: React.FC = () => {
               <input
                 type="number"
                 name="height"
+                required
+                min="0"
+                step="any"
                 id="height"
                 onChange={(e) => {
                   setFieldValue('height', e.target.value);
