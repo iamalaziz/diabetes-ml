@@ -40,7 +40,7 @@ const Footer = () => {
         <div className="mb-2 text-sm text-gray-500 dark:text-gray-400 sm:block md:hidden lg:hidden">
           <div className="mx-1">
             <Link
-              href={'https://github.com/iamalaziz'}
+              href={'https://github.com/iamalaziz/diabetes-ml'}
               className="link-underline"
             >
               Abdulaziz Mashrabov{` © ${new Date().getFullYear()}`}
