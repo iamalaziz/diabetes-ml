@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 
 export default function HomeScreen() {
   return (
-    <div className="mt-60">
+    <div className="mt-40">
       <div className="relative isolate ">
         <div className="mx-auto max-w-2xl">
           <div className="hidden sm:mb-8 sm:flex sm:justify-center">

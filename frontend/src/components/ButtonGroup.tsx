@@ -10,7 +10,7 @@ const ButtonGroup: React.FC<ButtonGroupProps> = ({
           type="button"
           key={option.value}
           className={`button px-3 py-1 border rounded-lg hover:transform hover:-translate-y-1 ${
-            value === option.value ? 'text-white bg-indigo-600' : ''
+            value === option.value ? 'text-white bg-indigo-600' : 'bg-white'
           }`}
           onClick={() => onChange(option.value)}
         >
