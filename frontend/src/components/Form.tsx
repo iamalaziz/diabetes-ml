@@ -1,5 +1,6 @@
 import { Formik, Field, Form } from 'formik';
 import ButtonGroup from './ButtonGroup';
+import axios from 'axios';
 
 const InputForm: React.FC = () => {
   const genderOptions: Option[] = [
@@ -14,8 +15,20 @@ const InputForm: React.FC = () => {
     { value: '65 or over 65', label: '65 or over 65' },
   ];
 
-  const handleSubmit = (values: FormValues) => {
+  const handleSubmit = (values:FormValues) => {
     console.log(values);
+    axios.post('http://localhost:8000', values, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    .then((response) => {
+      console.log(response.data);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+
   };
 
   const calculateBMI = (values: FormValues) => {
@@ -27,6 +40,7 @@ const InputForm: React.FC = () => {
     const bmi = weight / (height * height);
     return bmi.toFixed(2);
   };
+  
   return (
     <Formik
       initialValues={{
