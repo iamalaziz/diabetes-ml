@@ -1,4 +1,6 @@
 import { Formik, Field, Form } from 'formik';
+import axios from 'axios';
+
 
 export const FormItem = ({ question, keyword }: TFormItem) => {
   return (
@@ -19,10 +21,22 @@ interface TFormItem {
   question: string;
   keyword: string;
 }
-import axios from 'axios';
+
 
 const InputForm: React.FC = () => {
   const handleSubmit = (values:FormValues) => {
+    values = {
+      'glucose':values.glucose,
+      'age': values.age,
+      'bmi': values.bmi,
+      'bloodPressure': values.bloodPressure, 
+      'pregnancies': values.pregnancies, 
+      'weight': values.weight, 
+      'height': values.height, 
+      'skinThickness': values.skinThickness,  
+      'insulin': values.insulin, 
+      'diabetesPedigreeFn': values.diabetesPedigreeFn,
+    }
     console.log(values);
     axios.post('http://localhost:8000', values, {
       headers: {
