@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Dialog } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import HeaderLogo from '../assets/img/diabetes.png';
@@ -28,7 +28,7 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { pathname } = useLocation();
 
-  const [data,setData ] =  useState<IMYData[]>([]);
+  // const [data,setData ] =  useState<IMYData[]>([]);
 
   // useEffect(()=>{
   //   fetch('http://localhost:8000/api')
@@ -38,6 +38,7 @@ export default function Header() {
   //     // console.log(data)
   // },[])
   // console.log(data)
+
   return (
     <header className="w-full inset-x-0 top-0">
       <nav
