@@ -28,17 +28,16 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { pathname } = useLocation();
 
-  // const [data,setData ] =  useState<IMYData[]>([]);
+  const [data,setData ] =  useState<IMYData[]>([]);
 
-  // useEffect(()=>{
-  //   fetch('http://localhost:8000/api')
-  //     .then(response => response.json())
-  //     .then(data=>setData(data))
-  //     .catch(error =>console.log(error))
-  //     // console.log(data)
-  // },[])
-  // console.log(data)
-
+  useEffect(()=>{
+    fetch('http://localhost:8000/api')
+      .then(response => response.json())
+      .then(data=>setData(data))
+      .catch(error =>console.log(error))
+      console.log(data)
+  },[])
+  console.log(data)
   return (
     <header className="w-full inset-x-0 top-0">
       <nav

@@ -38,7 +38,6 @@ const InputForm: React.FC = () => {
       'insulin': values.insulin, 
       'diabetesPedigreeFn': values.diabetesPedigreeFn,
     }
-
     console.log(values);
     axios.post('http://localhost:8000/', values, {
       headers: {
