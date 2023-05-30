@@ -1,6 +1,6 @@
 import { Formik, Field, Form } from 'formik';
 import axios from 'axios';
-
+import { useState } from 'react';
 
 export const FormItem = ({ question, keyword }: TFormItem) => {
   return (
@@ -24,7 +24,7 @@ interface TFormItem {
 
 
 const InputForm: React.FC = () => {
-  
+  const [result, setResult] = useState<string>('')
   const handleSubmit = (values:FormValues) => {
     values = {
       'glucose':values.glucose,
@@ -38,7 +38,7 @@ const InputForm: React.FC = () => {
       'insulin': values.insulin, 
       'diabetesPedigreeFn': values.diabetesPedigreeFn,
     }
-    console.log(values);
+
     axios.post('http://localhost:8000/', values, {
       headers: {
         'Content-Type': 'application/json'
@@ -48,9 +48,8 @@ const InputForm: React.FC = () => {
       console.log(response.data);
     })
     .catch((error) => {
-      console.error(error);
+      console.error(error.message);
     });
-
   };
 
   const calculateBMI = (values: FormValues) => {

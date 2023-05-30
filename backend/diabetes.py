@@ -16,7 +16,7 @@ from sklearn.metrics import accuracy_score
 
 """Loading Dataset"""
 
-data = pd.read_csv(r"/content/diabetes.csv")
+data = pd.read_csv(r"/Users/abdulaziz/Downloads/diabetesdjango1/diabetes-ml/backend/diabetes.csv")
 data.head()
 
 """Checking for missing data"""

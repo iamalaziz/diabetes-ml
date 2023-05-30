@@ -1,21 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Dialog } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import HeaderLogo from '../assets/img/diabetes.png';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
-
-interface IMYData{
-  pragnancies :number
-  Glucose :number
-  BloodPressure :number
-  SkinSickness :number
-  Insulin :number
-  BMI :number
-  DiabestesPedfn :number
-  Age : number
-  Result : boolean
-}
 
 const navigation = [
   { name: 'Home', href: '/' },
@@ -28,16 +16,6 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { pathname } = useLocation();
 
-  const [data,setData ] =  useState<IMYData[]>([]);
-
-  useEffect(()=>{
-    fetch('http://localhost:8000/api')
-      .then(response => response.json())
-      .then(data=>setData(data))
-      .catch(error =>console.log(error))
-      console.log(data)
-  },[])
-  console.log(data)
   return (
     <header className="w-full inset-x-0 top-0">
       <nav
@@ -66,7 +44,7 @@ export default function Header() {
         </div>
         <div className="hidden lg:flex lg:gap-x-12">
           {navigation.map((item) => (
-            <NavLink
+            <Link
               key={item.name}
               to={item.href}
               className={
@@ -76,7 +54,7 @@ export default function Header() {
               }
             >
               {item.name}
-            </NavLink>
+            </Link>
           ))}
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
